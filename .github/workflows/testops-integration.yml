@@ -41,18 +41,9 @@ jobs:
       - name: Install PW 
         run: npm init playwright@latest
          
-      - name: ========================= ls -la /home/runner/
-        run: ls -la /home
-      - name: ========================= ls -la /home/runner/
-        run: ls -la /home/runner
-      - name: ========================= ls -la /home/runner/work
-        run: ls -la /home/runner/work
-      - name: ========================= ls -la /home/runner/work/PW-test
-        run: ls -la /home/runner/work/PW-test
+  
       - name: ========================= ls -la /home/runner/work/PW-test/PW-test/
         run: ls -la /home/runner/work/PW-test/PW-test
-      - name: ========================= ls -la /home/runner/work/PW-test/PW-test/build
-        run: ls -la /home/runner/work/PW-test/PW-test/build
         
 
       - name: install and configure allurectl
@@ -61,10 +52,12 @@ jobs:
           allure-endpoint: ${{ secrets.ALLURE_ENDPOINT }}
           allure-token: ${{ secrets.ALLURE_TOKEN }}
           allure-project-id: 7806
-      #- name: ========================= ls -la /home/runner/work/PW-test
-        #run: ls -la /home/runner/work/PW-test
+      - name: ========================= ls -la /home/runner/work/PW-test/PW-test/
+        run: ls -la /home/runner/work/PW-test/PW-test
       - name: run playwright test
         run: |
+            echo "========================= ls -la /home/runner/work/PW-test/PW-test/"
+            ls -la /home/runner/work/PW-test/PW-test
             allurectl watch -- npx playwright test
             export $(allurectl job-run env)
             printenv | grep ALLURE_
