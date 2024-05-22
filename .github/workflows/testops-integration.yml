@@ -49,10 +49,10 @@ jobs:
         run: ls -la /home/runner/work
       - name: ========================= ls -la /home/runner/work/PW-test
         run: ls -la /home/runner/work/PW-test
-      - name: ========================= ls -la /home/runner/work/PW-test/build
-        run: ls -la /home/runner/work/PW-test/build
-      - name: ========================= ls -la /home/runner/work/PW-test/build/allure-results
-        run: ls -la /home/runner/work/PW-test/build/allure-results  
+      - name: ========================= ls -la /home/runner/work/PW-test/PW-test/
+        run: ls -la /home/runner/work/PW-test/PW-test
+      - name: ========================= ls -la /home/runner/work/PW-test/PW-test/build
+        run: ls -la /home/runner/work/PW-test/PW-test/build
         
 
       - name: install and configure allurectl
@@ -61,6 +61,8 @@ jobs:
           allure-endpoint: ${{ secrets.ALLURE_ENDPOINT }}
           allure-token: ${{ secrets.ALLURE_TOKEN }}
           allure-project-id: 7806
+      #- name: ========================= ls -la /home/runner/work/PW-test
+        #run: ls -la /home/runner/work/PW-test
       - name: run playwright test
         run: |
             allurectl watch -- npx playwright test
