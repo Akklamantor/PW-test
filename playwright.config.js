@@ -20,7 +20,7 @@ const config = {
       "allure-playwright",
       {
         detail: true,
-        outputFolder: "/tmp/allure-results",
+        outputFolder: "allure-results",
         suiteTitle: true,
         categories: [
           {

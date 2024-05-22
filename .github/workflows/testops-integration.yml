@@ -23,7 +23,7 @@ env:
     ALLURE_TOKEN: ${{ secrets.ALLURE_TOKEN }}
     ALLURE_ENDPOINT: ${{ secrets.ALLURE_ENDPOINT }}
     ALLURE_PROJECT_ID: 7806
-    ALLURE_RESULTS: "/tmp/allure-results"
+    ALLURE_RESULTS: "allure-results"
     ALLURE_JOB_RUN_ID: ${{ github.event.inputs.ALLURE_JOB_RUN_ID }}
     
 jobs:
@@ -40,6 +40,20 @@ jobs:
       
       - name: Install PW 
         run: npm init playwright@latest
+         
+      - name: ========================= ls -la /home/runner/
+        run: ls -la /home
+      - name: ========================= ls -la /home/runner/
+        run: ls -la /home/runner
+      - name: ========================= ls -la /home/runner/work
+        run: ls -la /home/runner/work
+      - name: ========================= ls -la /home/runner/work/PW-test
+        run: ls -la /home/runner/work/PW-test
+      - name: ========================= ls -la /home/runner/work/PW-test/build
+        run: ls -la /home/runner/work/PW-test/build
+      - name: ========================= ls -la /home/runner/work/PW-test/build/allure-results
+        run: ls -la /home/runner/work/PW-test/build/allure-results  
+        
 
       - name: install and configure allurectl
         uses: allure-framework/setup-allurectl@v1
