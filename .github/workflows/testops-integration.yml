@@ -50,11 +50,23 @@ jobs:
           TEST_BROWSER: ${{ github.event.inputs.TEST_BROWSER }}
       - name: Get ALLURE_ environments
         run: |
-          export $(allurectl job-run env)
-          printenv | grep ALLURE_
-          echo ${ALLURE_JOB_RUN_ID}
+            export $(allurectl job-run env)
+            printenv | grep ALLURE_
+            echo ${ALLURE_JOB_RUN_ID}
       - name: Get GITHUB_ environments
         run: | 
-          printenv | grep GITHUB_
+            printenv | grep GITHUB_
+      - name: Install PW 
+        run: cd test-components/api && npx playwright install
+      - name: Run API PW HMB Tests
+        if: success() || failure()
+        run: cd test-components/api-pw/workflow-pod && npx playwright test tests/HMB --workers=1
+      - name: Upload Report Artifact
+        if: success() || failure()
+        uses: actions/upload-artifact@v3
+        with:
+            name: html-report
+            path: _OUTPUT/html-report
+            retention-days: 5
       - name: List results
         run: ls -la ${ALLURE_RESULTS}
