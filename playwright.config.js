@@ -19,8 +19,17 @@ const config = {
     [
       "allure-playwright",
       {
+        detail: true,
+        outputFolder: "tmp/allure-results",
+        suiteTitle: true,
+        categories: [
+          {
+            name: "Outdated tests",
+            messageRegex: ".*FileNotFound.*",
+          },
+        ],
         environmentInfo: {
-          node_version: process.version,
+          framework: "playwright",
         },
       },
     ],

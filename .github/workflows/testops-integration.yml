@@ -23,7 +23,7 @@ env:
     ALLURE_TOKEN: ${{ secrets.ALLURE_TOKEN }}
     ALLURE_ENDPOINT: ${{ secrets.ALLURE_ENDPOINT }}
     ALLURE_PROJECT_ID: 7806
-    ALLURE_RESULTS: "./allure-results"
+    ALLURE_RESULTS: "tmp/allure-results"
     ALLURE_JOB_RUN_ID: ${{ github.event.inputs.ALLURE_JOB_RUN_ID }}
     
 jobs:
