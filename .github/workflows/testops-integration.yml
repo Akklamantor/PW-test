@@ -35,35 +35,24 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '22'
-                   #added this:
       - name: Install dependencies
         run: npm ci
-      
       - name: Install PW 
         run: npm init playwright@latest
-         #added this:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
-      - name: ========================= ls -la /home/runner/work/PW-test/PW-test/
-        run: ls -la /home/runner/work/PW-test/PW-test
-        
-
       - name: install and configure allurectl
         uses: allure-framework/setup-allurectl@v1
         with:
           allure-endpoint: ${{ secrets.ALLURE_ENDPOINT }}
           allure-token: ${{ secrets.ALLURE_TOKEN }}
           allure-project-id: 7806
-      - name: ========================= ls -la /home/runner/work/PW-test/PW-test/
-        run: ls -la /home/runner/work/PW-test/PW-test
       - name: run playwright test
         run: |
             allurectl watch -- npx playwright test
         env:
           TEST_ENDPOINT: ${{ github.event.inputs.TEST_ENDPOINT }}
           TEST_BROWSER: ${{ github.event.inputs.TEST_BROWSER }}
-
-        # export $(allurectl job-run env) printenv | grep ALLURE_ env:
       - name: Get ALLURE_ environments
         run: |
               export $(allurectl job-run env)
@@ -77,3 +66,5 @@ jobs:
 
         #printenv grep ALLURE_ 
         #            export $(allurectl job-run env) 
+        #- name: ========================= ls -la /home/runner/work/PW-test/PW-test/
+        #run: ls -la /home/runner/work/PW-test/PW-test
