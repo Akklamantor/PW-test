@@ -20,8 +20,9 @@ on:
         required: false
 
 env:
-  ALLURE_ENDPOINT: https://testing.testops.cloud/ 
+  ALLURE_ENDPOINT: ${{ secrets.ALLURE_ENDPOINT }}
   ALLURE_TOKEN: ${{ secrets.ALLURE_TOKEN }}
+  ALLURE_PROJECT_ID: 7806
   ALLURE_RESULTS: "build/allure-results"
   ALLURE_JOB_RUN_ID: ${{ github.event.inputs.ALLURE_JOB_RUN_ID }}
 
@@ -37,7 +38,7 @@ jobs:
       - name: install and configure allurectl
         uses: allure-framework/setup-allurectl@v1
         with:
-          allure-endpoint: ${{ env.ALLURE_ENDPOINT }}
+          allure-endpoint: ${{ secrets.ALLURE_ENDPOINT }}
           allure-token: ${{ secrets.ALLURE_TOKEN }}
           allure-project-id: 7806
       - name: Build with Gradle
@@ -50,23 +51,11 @@ jobs:
           TEST_BROWSER: ${{ github.event.inputs.TEST_BROWSER }}
       - name: Get ALLURE_ environments
         run: |
-            export $(allurectl job-run env)
-            printenv | grep ALLURE_
-            echo ${ALLURE_JOB_RUN_ID}
+          export $(allurectl job-run env)
+          printenv | grep ALLURE_
+          echo ${ALLURE_JOB_RUN_ID}
       - name: Get GITHUB_ environments
         run: | 
-            printenv | grep GITHUB_
-      - name: Install PW 
-        run: cd test-components/api && npx playwright install
-      - name: Run API PW HMB Tests
-        if: success() || failure()
-        run: cd test-components/api-pw/workflow-pod && npx playwright test tests/HMB --workers=1
-      - name: Upload Report Artifact
-        if: success() || failure()
-        uses: actions/upload-artifact@v3
-        with:
-            name: html-report
-            path: _OUTPUT/html-report
-            retention-days: 5
+          printenv | grep GITHUB_
       - name: List results
         run: ls -la ${ALLURE_RESULTS}
