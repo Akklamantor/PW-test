@@ -58,24 +58,22 @@ jobs:
         run: ls -la /home/runner/work/PW-test/PW-test
       - name: run playwright test
         run: |
-            echo "========================= ls -la /home/runner/work/PW-test/PW-test/"
-            ls -la /home/runner/work/PW-test/PW-test
-            allurectl watch -- npx playwright test 
+            allurectl watch -- npx playwright test
         env:
-          ALLURE_RESULTS: build/allure-results
           TEST_ENDPOINT: ${{ github.event.inputs.TEST_ENDPOINT }}
           TEST_BROWSER: ${{ github.event.inputs.TEST_BROWSER }}
 
-        #--reporter=line,allure-playwright export $(allurectl job-run env) printenv | grep ALLURE_ env:
+        # export $(allurectl job-run env) printenv | grep ALLURE_ env:
       - name: Get ALLURE_ environments
         run: |
               export $(allurectl job-run env)
               printenv | grep ALLURE_
               echo ${ALLURE_JOB_RUN_ID}
-              echo "========================= ls -la /home/runner/work/PW-test/PW-test/"
-              ls -la /home/runner/work/PW-test/PW-test
       - name: Get GITHUB_ environments
         run: | 
               printenv | grep GITHUB_
       - name: List results
         run: ls -la ${ALLURE_RESULTS}
+
+        #printenv grep ALLURE_ 
+        #            export $(allurectl job-run env) 
