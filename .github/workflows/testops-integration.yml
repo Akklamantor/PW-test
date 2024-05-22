@@ -61,9 +61,9 @@ jobs:
           allure-endpoint: ${{ secrets.ALLURE_ENDPOINT }}
           allure-token: ${{ secrets.ALLURE_TOKEN }}
           allure-project-id: 7806
-      - name: run playwrite test
+      - name: run playwright test
         run: |
-            allurectl watch -- npx playwrite test
+            allurectl watch -- npx playwright test
             export $(allurectl job-run env)
             printenv | grep ALLURE_
             env:
