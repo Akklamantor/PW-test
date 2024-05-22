@@ -4,4 +4,3 @@ node_modules/
 /allure-report/
 /playwright-report/
 /playwright/.cache/
-package-lock.json
