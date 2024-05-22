@@ -89,7 +89,4 @@ jobs:
       - name: List results
         run: ls -la ${ALLURE_RESULTS}
 
-        #printenv grep ALLURE_ 
-        #            export $(allurectl job-run env) 
-        #- name: ========================= ls -la /home/runner/work/PW-test/PW-test/
-        #run: ls -la /home/runner/work/PW-test/PW-test
+  
