@@ -36,8 +36,6 @@ jobs:
         with:
           node-version: '22'
                    #added this:
-      - uses: ./.github/actions/dependencies
-      
       - name: Install API dependencies
         run: cd test-components/api && npm ci
       - uses: actions/checkout@v2
