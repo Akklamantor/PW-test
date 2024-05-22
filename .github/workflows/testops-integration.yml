@@ -61,10 +61,10 @@ jobs:
             echo "========================= ls -la /home/runner/work/PW-test/PW-test/"
             ls -la /home/runner/work/PW-test/PW-test
             allurectl watch -- npx playwright test 
-            env:
-              ALLURE_RESULTS: build/allure-results
-              TEST_ENDPOINT: ${{ github.event.inputs.TEST_ENDPOINT }}
-              TEST_BROWSER: ${{ github.event.inputs.TEST_BROWSER }}
+        env:
+          ALLURE_RESULTS: build/allure-results
+          TEST_ENDPOINT: ${{ github.event.inputs.TEST_ENDPOINT }}
+          TEST_BROWSER: ${{ github.event.inputs.TEST_BROWSER }}
 
         #--reporter=line,allure-playwright export $(allurectl job-run env) printenv | grep ALLURE_ env:
       - name: Get ALLURE_ environments
