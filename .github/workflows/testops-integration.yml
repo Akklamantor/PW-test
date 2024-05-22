@@ -58,7 +58,7 @@ jobs:
         run: |
             echo "========================= ls -la /home/runner/work/PW-test/PW-test/"
             ls -la /home/runner/work/PW-test/PW-test
-            allurectl watch -- npx playwright test
+            allurectl watch -- npx playwright test --reporter=line,allure-playwright
             export $(allurectl job-run env)
             printenv | grep ALLURE_
             env:
