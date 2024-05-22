@@ -49,10 +49,10 @@ jobs:
         run: ls -la /home/runner/work
       - name: ========================= ls -la /home/runner/work/PW-test
         run: ls -la /home/runner/work/PW-test
-      - name: ========================= ls -la /home/runner/work/PW-test/build
-        run: ls -la /home/runner/work/PW-test/build
-      - name: ========================= ls -la /home/runner/work/PW-test/build/allure-results
-        run: ls -la /home/runner/work/PW-test/build/allure-results  
+      #- name: ========================= ls -la /home/runner/work/PW-test/build
+        #run: ls -la /home/runner/work/PW-test/build
+      #- name: ========================= ls -la /home/runner/work/PW-test/build/allure-results
+        #run: ls -la /home/runner/work/PW-test/build/allure-results  
         
 
       - name: install and configure allurectl
