@@ -62,8 +62,8 @@ jobs:
           node-version: '22'
       - name: Install dependencies
         run: npm ci
-      - name: Install PW 
-        run: npm init playwright@latest
+     # - name: Install PW 
+     #   run: npm init playwright@latest
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
       - name: install and configure allurectl
