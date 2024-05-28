@@ -4,10 +4,6 @@ on:
   push:
   workflow_dispatch:
     inputs:
-     # TEST_ENDPOINT:
-      #  description: "Endpoint for tests"
-     #  required: true
-     #   default: https://param.pam
       TEST_BROWSER:
         description: "Browser for tests"
         required: true
@@ -49,7 +45,7 @@ env:
     ALLURE_ENDPOINT: ${{ secrets.ALLURE_ENDPOINT }}
     ALLURE_PROJECT_ID: 7806
     ALLURE_RESULTS: "allure-results"
-    ALLURE_JOB_RUN_ID: ${{ github.event.inputs.ALLURE_JOB_RUN_ID }}
+    ALLURE_JOB_RUN_ID: ${{ github.event.inputs.ALLURE_JOB_RUN_ID || ''}}
     
 jobs:
   build:
