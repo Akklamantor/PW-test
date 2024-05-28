@@ -4,10 +4,10 @@ on:
   push:
   workflow_dispatch:
     inputs:
-      TEST_ENDPOINT:
-        description: "Endpoint for tests"
-        required: true
-        default: https://param.pam
+     # TEST_ENDPOINT:
+      #  description: "Endpoint for tests"
+     #  required: true
+     #   default: https://param.pam
       TEST_BROWSER:
         description: "Browser for tests"
         required: true
