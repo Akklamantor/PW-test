@@ -1,4 +1,4 @@
-name: gh-integration
+name: gh-integration PW
 
 on:
   push:
