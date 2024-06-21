@@ -70,7 +70,11 @@ jobs:
           allure-project-id: 7806
       - name: run playwright test
         run: |
+            echo "chtonibud tam"
+            cat ${ALLURE_TESTPLAN_PATH}
             allurectl watch -- npx playwright test
+            echo "tam chtonibud posle"
+            cat ${ALLURE_TESTPLAN_PATH}
         env:
           TEST_ENDPOINT: ${{ github.event.inputs.TEST_ENDPOINT }}
           TEST_BROWSER: ${{ github.event.inputs.TEST_BROWSER }}
