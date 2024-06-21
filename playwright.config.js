@@ -1,5 +1,5 @@
 import { devices } from "@playwright/test";
-
+import { testPlanFilter } from "allure-playwright/dist/testplan";
 const config = {
   testDir: "./tests",
   timeout: 30 * 1000,
@@ -60,6 +60,7 @@ const config = {
   //   port: 3000,
   // },
   outputDir: "test-results/",
+  grep: testPlanFilter()
 };
 
 export default config;
