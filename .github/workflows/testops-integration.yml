@@ -4,6 +4,10 @@ on:
   push:
   workflow_dispatch:
     inputs:
+      TEST_ENDPOINT:
+        description: "Endpoint for tests"
+        required: true
+        default: https://dev.github.com
       TEST_BROWSER:
         description: "Browser for tests"
         required: true
@@ -42,7 +46,7 @@ on:
 
 env:
     ALLURE_TOKEN: ${{ secrets.ALLURE_TOKEN }}
-    ALLURE_ENDPOINT: ${{ secrets.ALLURE_ENDPOINT }}
+    ALLURE_ENDPOINT: https://testing.testops.cloud
     ALLURE_PROJECT_ID: 7806
     ALLURE_RESULTS: "allure-results"
     ALLURE_JOB_RUN_ID: ${{ github.event.inputs.ALLURE_JOB_RUN_ID || ''}}
@@ -65,7 +69,7 @@ jobs:
       - name: install and configure allurectl
         uses: allure-framework/setup-allurectl@v1
         with:
-          allure-endpoint: ${{ secrets.ALLURE_ENDPOINT }}
+          allure-endpoint: https://testing.testops.cloud
           allure-token: ${{ secrets.ALLURE_TOKEN }}
           allure-project-id: 7806
       - name: run playwright test
