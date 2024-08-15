@@ -43,7 +43,7 @@ on:
 env:
     ALLURE_TOKEN: ${{ secrets.ALLURE_TOKEN }}
     ALLURE_ENDPOINT: ${{ secrets.ALLURE_ENDPOINT }}
-    ALLURE_PROJECT_ID: 8166
+    ALLURE_PROJECT_ID: 7806
     ALLURE_RESULTS: "allure-results"
     ALLURE_JOB_RUN_ID: ${{ github.event.inputs.ALLURE_JOB_RUN_ID || ''}}
     
@@ -67,7 +67,7 @@ jobs:
         with:
           allure-endpoint: ${{ secrets.ALLURE_ENDPOINT }}
           allure-token: ${{ secrets.ALLURE_TOKEN }}
-          allure-project-id: 8166
+          allure-project-id: 7806
       - name: run playwright test
         run: |
             echo "chtonibud tam"
