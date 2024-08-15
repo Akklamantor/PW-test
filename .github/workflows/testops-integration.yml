@@ -49,7 +49,7 @@ env:
     ALLURE_ENDPOINT: https://testing.testops.cloud
     ALLURE_PROJECT_ID: 7806
     ALLURE_RESULTS: "allure-results"
-    ALLURE_JOB_RUN_ID: ${{ github.event.inputs.ALLURE_JOB_RUN_ID || ''}}
+    ALLURE_JOB_RUN_ID: ${{ github.event.inputs.ALLURE_JOB_RUN_ID}}
     
 jobs:
   build:
