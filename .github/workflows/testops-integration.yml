@@ -76,8 +76,8 @@ jobs:
             echo "chtonibud tam"
             cat ${ALLURE_TESTPLAN_PATH}
             allurectl watch -- npx playwright test
-            echo "tam chtonibud posle"
-            cat /home/runner/work/PW-test/PW-test/.allure/testplan.json
+          //  echo "tam chtonibud posle"
+          //  cat /home/runner/work/PW-test/PW-test/.allure/testplan.json
         env:
           TEST_ENDPOINT: ${{ github.event.inputs.TEST_ENDPOINT }}
           TEST_BROWSER: ${{ github.event.inputs.TEST_BROWSER }}
